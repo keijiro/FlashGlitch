@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "jp.keijiro.klak.testtools": "1.0.4",
+    "jp.keijiro.shadergraphassets": "2.5.1"
+  },
+  "scopedRegistries": [
+    {
+      "name": "Keijiro",
+      "url": "https://registry.npmjs.com",
+      "scopes": [
+        "jp.keijiro"
+      ]
+    }
+  ]
+}
