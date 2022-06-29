@@ -57,10 +57,10 @@ public sealed class FlashGlitchController : MonoBehaviour
         var renderer = GetComponent<Renderer>();
         renderer.GetPropertyBlock(_block);
 
-        _block.SetFloat("_Param1", _value1);
-        _block.SetFloat("_Param2", _value2);
+        _block.SetFloat("_Effect1", _value1);
+        _block.SetFloat("_Effect2", _value2);
         _block.SetFloat("_Seed", _seed);
-        _block.SetFloat("_HueShift", _hue);
+        _block.SetFloat("_Hue", _hue);
 
         renderer.SetPropertyBlock(_block);
     }
