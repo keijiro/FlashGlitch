@@ -13,7 +13,7 @@ public sealed class FlashGlitchController : MonoBehaviour
 
     #endregion
 
-    #region Public method
+    #region Public methods and properties
 
     public void TriggerEffect(int index, float value)
     {
@@ -31,6 +31,8 @@ public sealed class FlashGlitchController : MonoBehaviour
 
     public void RandomizeHue()
       => _hue = Random.value;
+
+    public Texture Source { get; set; }
 
     #endregion
 
@@ -57,6 +59,7 @@ public sealed class FlashGlitchController : MonoBehaviour
         var renderer = GetComponent<Renderer>();
         renderer.GetPropertyBlock(_block);
 
+        if (Source != null) _block.SetTexture("_MainTex", Source);
         _block.SetFloat("_Effect1", _value1);
         _block.SetFloat("_Effect2", _value2);
         _block.SetFloat("_Seed", _seed);
