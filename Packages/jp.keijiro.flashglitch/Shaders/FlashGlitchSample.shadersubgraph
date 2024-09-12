@@ -290,9 +290,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -451.5,
+            "x": -425.5,
             "y": -23.5,
-            "width": 101.99996948242188,
+            "width": 102.0,
             "height": 34.0
         }
     },
@@ -399,7 +399,7 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -475.5000305175781,
+            "x": -449.5,
             "y": -141.5,
             "width": 126.0,
             "height": 118.0
@@ -966,7 +966,7 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -442.0000305175781,
+            "x": -416.0,
             "y": -175.5,
             "width": 92.5,
             "height": 34.0
@@ -1250,10 +1250,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -813.0,
-            "y": -108.5,
+            "x": -751.5,
+            "y": -101.5,
             "width": 120.5,
-            "height": 34.00006103515625
+            "height": 34.0
         }
     },
     "m_Slots": [
@@ -1298,13 +1298,13 @@
     },
     "m_Name": "Texel Size",
     "m_DrawState": {
-        "m_Expanded": true,
+        "m_Expanded": false,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -677.5,
+            "x": -631.0,
             "y": -141.5,
-            "width": 182.49996948242188,
-            "height": 101.00006103515625
+            "width": 181.5,
+            "height": 101.0
         }
     },
     "m_Slots": [
