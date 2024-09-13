@@ -18,3 +18,12 @@ void FlashGlitch_Distortion_float
     output = frac(uv + offs1 + offs2);
     rand = Hash(seed + 3);
 }
+
+void FlashGlitch_Threshold_float
+  (float3 color, float threshold, out float output)
+{
+#ifndef UNITY_COLORSPACE_GAMMA
+    color = LinearToSRGB(color);
+#endif
+    output = Luminance(color) > threshold;
+}
