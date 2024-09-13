@@ -168,7 +168,7 @@
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "com.unity.shadergraph": "12.1.0",
+        "com.unity.shadergraph": "17.0.3",
         "jp.keijiro.noiseshader": "2.0.0"
       }
     },

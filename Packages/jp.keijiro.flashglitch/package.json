@@ -1,7 +1,7 @@
 {
     "author": "Keijiro Takahashi",
     "dependencies": {
-        "com.unity.shadergraph": "12.1.0",
+        "com.unity.shadergraph": "17.0.3",
         "jp.keijiro.noiseshader": "2.0.0"
     },
     "description": "Rhythmic flashing effect",
@@ -9,7 +9,7 @@
     "keywords": [ "unity" ],
     "license": "Unlicense",
     "name": "jp.keijiro.flashglitch",
-    "unity": "2021.3",
+    "unity": "6000.0",
     "unityRelease": "0f1",
     "version": "1.0.0"
 }

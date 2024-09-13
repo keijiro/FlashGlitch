@@ -707,6 +707,8 @@ MonoBehaviour:
         m_DofCoCMinMaxCS: {fileID: 7200000, guid: c70dd492c3d2fe94589d6ca8d4e37915, type: 3}
         m_DofMinMaxDilateCS: {fileID: 7200000, guid: 757a3f81b35177b44b2b178909b49172, type: 3}
         m_DofCombineCS: {fileID: 7200000, guid: d9b940a90a2d0884f94990a0dde43a53, type: 3}
+        m_DofComputeSlowTilesCS: {fileID: 7200000, guid: b89f86a76de81ee42ae16daad78eb382, type: 3}
+        m_DofComputeApertureShapeCS: {fileID: 7200000, guid: dd5acecb27e20334fa3be332e85172df, type: 3}
         m_MotionBlurMotionVecPrepCS: {fileID: 7200000, guid: ed9438fa777911d48933402087203b15, type: 3}
         m_MotionBlurGenTileCS: {fileID: 7200000, guid: 336e1fdbb3a1b8647b06208415f87804, type: 3}
         m_MotionBlurMergeTileCS: {fileID: 7200000, guid: cd14ddf849edeed43b0e3ccf66023038, type: 3}
