@@ -4,7 +4,7 @@ HLSLINCLUDE
 
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 #include "Packages/com.unity.render-pipelines.core/Runtime/Utilities/Blit.hlsl"
-#include "Assets/FlashGlitch/FlashGlitchFunctions.hlsl"
+#include "Packages/jp.keijiro.flashglitch/Shaders/FlashGlitchFunctions.hlsl"
 
 half _Effect1;
 half _Effect2;

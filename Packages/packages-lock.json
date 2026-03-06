@@ -120,13 +120,12 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
-    "com.unity.visualeffectgraph": {
-      "version": "17.3.0",
+    "jp.keijiro.flashglitch": {
+      "version": "file:jp.keijiro.flashglitch",
       "depth": 0,
-      "source": "builtin",
+      "source": "embedded",
       "dependencies": {
-        "com.unity.shadergraph": "17.3.0",
-        "com.unity.render-pipelines.core": "17.3.0"
+        "jp.keijiro.noiseshader": "3.0.1"
       }
     },
     "jp.keijiro.klak.lineargradient": {
@@ -163,7 +162,7 @@
     },
     "jp.keijiro.noiseshader": {
       "version": "3.0.1",
-      "depth": 0,
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://registry.npmjs.com"
