@@ -8,16 +8,16 @@ HLSLINCLUDE
 
 half _Effect1;
 half _Effect2;
-half _Seed;
+uint _Seed;
 half _Hue;
 
-float2 FG_Distortion(float2 uv, float aspect, float seed, out float random)
+float2 FG_Distortion(float2 uv, float aspect, uint seed, out float random)
 {
     const float cells = 16;
     float2 grid = floor(uv * float2(aspect, 1) * cells) / cells;
 
-    float2 nPos = float2(grid * float2(0.3, 8)) + seed * 3.1545;
-    uint hashSeed = (uint)((SimplexNoise(nPos) + 2) * 0.8 + seed) * 4;
+    float2 nPos = float2(grid * float2(0.3, 8)) + float(seed) * 3.1545;
+    uint hashSeed = (uint)((SimplexNoise(nPos) + 2) * 0.8 + float(seed)) * 4;
 
     float2 offs1 = float2(Hash(hashSeed), Hash(hashSeed + 1));
 
@@ -29,9 +29,9 @@ float2 FG_Distortion(float2 uv, float aspect, float seed, out float random)
     return frac(uv + offs1 + offs2);
 }
 
-float2 FG_Displace(float2 uv, float seed)
+float2 FG_Displace(float2 uv, uint seed)
 {
-    float d = Hash(uv.y * 6 + seed) * 2 - 1;
+    float d = Hash((uint)(uv.y * 6) + seed) * 2 - 1;
     float d5 = d * d * d * d * d;
     return float2(uv.x + d5 * 0.03, uv.y);
 }
@@ -43,7 +43,7 @@ float3 FG_ApplyHue(float3 color, float shift)
     return SRGBToLinear(HsvToRgb(hsv));
 }
 
-half FG_Sample(half2 uv, half threshold, half seed)
+half FG_Sample(half2 uv, half threshold, uint seed)
 {
     float aspect = _ScreenParams.x / _ScreenParams.y;
     float random;

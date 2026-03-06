@@ -45,7 +45,7 @@ public sealed class FlashGlitchController : MonoBehaviour
 
         _material.SetFloat("_Effect1", _value1);
         _material.SetFloat("_Effect2", _value2);
-        _material.SetFloat("_Seed", Seed);
+        _material.SetInteger("_Seed", (int)Seed);
         _material.SetFloat("_Hue", Hue);
 
         return _material;
