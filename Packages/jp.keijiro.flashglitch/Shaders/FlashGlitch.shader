@@ -11,32 +11,34 @@ half _Effect2;
 uint _Seed;
 half _Hue;
 
-//
-// UV distortion pipeline:
-//
-// 1) Quantize UV into a coarse grid.
-// 2) Use quantized 2D noise to derive a per-grid seed with spatial correlation.
-// 3) Generate a random offset from the seed.
-// 4) Generate a skew term from the same seed and convert it to a secondary offset.
-// 5) Wrap the final UV with frac.
-//
-float3 FG_Distortion(float2 uv, float aspect, uint seed)
+// Per-grid random number generator
+float4 FG_GridRandom(float2 uv, uint seed)
 {
+    // Quantize UV into a coarse grid.
     const float cells = 16;
+    float aspect = _ScreenParams.x / _ScreenParams.y;
     float2 grid = floor(uv * float2(aspect, 1) * cells) / cells;
 
+    // Use quantized 2D noise to derive a per-grid seed with spatial correlation.
     float2 npos = grid * float2(0.3, 8) + float(seed) * 3.1545;
-    uint gseed = (uint)((SimplexNoise(npos) + 2) * 0.8 + float(seed)) * 4;
+    uint gseed = (SimplexNoise(npos) + 2) * 0.8 + float(seed);
 
-    float2 offs1 = float2(Hash(gseed), Hash(gseed + 1));
-
-    float skew = (Hash(gseed + 2) - 0.5) * 2;
-    float skew7 = skew * skew * skew * skew * skew * skew * skew;
-    float2 offs2 = float2(uv.y * skew7 * 8, 0);
-
-    return float3(frac(uv + offs1 + offs2), Hash(gseed + 3));
+    // Expand the seed to generate four values.
+    return float4(Hash(gseed * 4),
+                  Hash(gseed * 4 + 1),
+                  Hash(gseed * 4 + 2),
+                  Hash(gseed * 4 + 3));
 }
 
+// UV skew function
+float2 FG_SkewUV(float2 uv, float rand)
+{
+    float skew = (rand - 0.5) * 2;
+    float skew7 = skew * skew * skew * skew * skew * skew * skew;
+    return float2(uv.y * skew7 * 8, 0);
+}
+
+// UV base displacement function
 float2 FG_Displace(float2 uv, uint seed)
 {
     float d = Hash((uint)(uv.y * 6) + seed) * 2 - 1;
@@ -44,6 +46,7 @@ float2 FG_Displace(float2 uv, uint seed)
     return float2(uv.x + d5 * 0.03, uv.y);
 }
 
+// Hue shifter
 float3 FG_ApplyHue(float3 color, float shift)
 {
     float3 hsv = RgbToHsv(saturate(color));
@@ -51,13 +54,14 @@ float3 FG_ApplyHue(float3 color, float shift)
     return SRGBToLinear(HsvToRgb(hsv));
 }
 
-half FG_Sample(half2 uv, half threshold, uint seed)
+// Glitched sampler
+half FG_SampleGlitch(half2 uv, half threshold, uint seed)
 {
-    float aspect = _ScreenParams.x / _ScreenParams.y;
-    float3 dist = FG_Distortion(uv, aspect, seed);
-
-    float3 src = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_LinearClamp, dist.xy).rgb;
-    return Luminance(LinearToSRGB(src)) > threshold + dist.z;
+    float4 rand = FG_GridRandom(uv, seed);
+    float2 skew = FG_SkewUV(uv, rand.z);
+    half2 uv2 = frac(uv + rand.xy + skew);
+    float3 src = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_LinearClamp, uv2).rgb;
+    return Luminance(LinearToSRGB(src)) > threshold + rand.w;
 }
 
 half4 Frag(Varyings input) : SV_Target
@@ -68,8 +72,8 @@ half4 Frag(Varyings input) : SV_Target
     float threshold1 = 1 - max(_Effect1, _Effect2);
     float threshold2 = 1 - _Effect2;
 
-    float sample1 = FG_Sample(uv1, threshold1, _Seed);
-    float sample2 = FG_Sample(uv2, threshold2, _Seed);
+    float sample1 = FG_SampleGlitch(uv1, threshold1, _Seed);
+    float sample2 = FG_SampleGlitch(uv2, threshold2, _Seed);
 
     float alpha = max(sample1, sample2);
     float3 color = FG_ApplyHue(float3(sample1, sample2, sample2), _Hue);
