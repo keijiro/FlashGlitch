@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "com.unity.render-pipelines.universal": "17.3.0",
+    "jp.keijiro.klutter-tools": "2.6.0",
+    "jp.keijiro.noiseshader": "3.0.1"
+  },
+  "scopedRegistries": [
+    {
+      "name": "Keijiro",
+      "url": "https://registry.npmjs.com",
+      "scopes": [
+        "jp.keijiro"
+      ]
+    }
+  ]
+}
