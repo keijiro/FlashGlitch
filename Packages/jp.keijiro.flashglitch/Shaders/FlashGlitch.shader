@@ -47,9 +47,9 @@ float2 FG_Displace(float2 uv, uint seed)
 }
 
 // Hue shifter
-float3 FG_ApplyHue(float3 color, float shift)
+half3 FG_ApplyHue(half3 color, half shift)
 {
-    float3 hsv = RgbToHsv(saturate(color));
+    half3 hsv = RgbToHsv(saturate(color));
     hsv.x = frac(hsv.x + shift);
     return SRGBToLinear(HsvToRgb(hsv));
 }
@@ -60,25 +60,25 @@ half FG_SampleGlitch(half2 uv, half threshold, uint seed)
     float4 rand = FG_GridRandom(uv, seed);
     float2 skew = FG_SkewUV(uv, rand.z);
     half2 uv2 = frac(uv + rand.xy + skew);
-    float3 src = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_LinearClamp, uv2).rgb;
+    half3 src = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_LinearClamp, uv2).rgb;
     return Luminance(LinearToSRGB(src)) > threshold + rand.w;
 }
 
 half4 Frag(Varyings input) : SV_Target
 {
-    float2 uv1 = input.texcoord;
+    half2 uv1 = input.texcoord;
     float2 uv2 = FG_Displace(uv1, _Seed);
 
-    float threshold1 = 1 - max(_Effect1, _Effect2);
-    float threshold2 = 1 - _Effect2;
+    half threshold1 = 1 - max(_Effect1, _Effect2);
+    half threshold2 = 1 - _Effect2;
 
-    float sample1 = FG_SampleGlitch(uv1, threshold1, _Seed);
-    float sample2 = FG_SampleGlitch(uv2, threshold2, _Seed);
+    half sample1 = FG_SampleGlitch(uv1, threshold1, _Seed);
+    half sample2 = FG_SampleGlitch(uv2, threshold2, _Seed);
 
-    float alpha = max(sample1, sample2);
-    float3 color = FG_ApplyHue(float3(sample1, sample2, sample2), _Hue);
+    half alpha = max(sample1, sample2);
+    half3 color = FG_ApplyHue(half3(sample1, sample2, sample2), _Hue);
 
-    float4 src = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_LinearClamp, uv1);
+    half4 src = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_LinearClamp, uv1);
     return half4(lerp(src.rgb, color, alpha), src.a);
 }
 
