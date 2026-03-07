@@ -24,16 +24,16 @@ into your project's `Packages` directory.
 
 The **FlashGlitchController** component has the following public methods:
 
-### `TriggerEffect1(float strength)`
+#### `TriggerEffect1(float strength)`
 
 Triggers the primary effect, which adds a colored glitch overlay to the screen.
 
-### `TriggerEffect2(float strength)`
+#### `TriggerEffect2(float strength)`
 
 Triggers the secondary effect, which adds a brighter glitch overlay to the
 screen.
 
-### `RandomizeHue()`
+#### `RandomizeHue()`
 
 Randomly changes the hue used by the glitch effects.
 
@@ -41,15 +41,15 @@ Randomly changes the hue used by the glitch effects.
 
 ![inspector](https://github.com/user-attachments/assets/73b805ac-28d5-45db-b1c6-217738b7a517)
 
-### ReleaseTime1/2
+#### ReleaseTime1/2
 
 Adjusts how quickly each effect fades out.
 
-### Hue
+#### Hue
 
 The hue used by the glitch effects. You can set it manually with this property
 or randomize it with `RandomizeHue()`.
 
-### Seed
+#### Seed
 
 The random seed used by the effects.
