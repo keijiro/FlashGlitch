@@ -38,6 +38,8 @@ Randomly changes the hue used by the glitch effects.
 
 ## Properties
 
+![inspector](https://github.com/user-attachments/assets/73b805ac-28d5-45db-b1c6-217738b7a517)
+
 ### ReleaseTime1/2
 
 Adjusts how quickly each effect fades out.
