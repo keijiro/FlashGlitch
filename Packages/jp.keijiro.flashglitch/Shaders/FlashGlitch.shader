@@ -26,8 +26,8 @@ float4 FG_GridRandom(float2 uv, uint seed)
     float2 grid = floor(uv * float2(aspect, 1) * cells) / cells;
 
     // Use quantized 2D noise to derive a per-grid seed offset with spatial correlation.
-    float2 npos = grid * float2(0.3, 8) + float(seed & 0xffu);
-    uint offs = SimplexNoise(npos) + 2;
+    float2 npos = grid * float2(0.075, 2) + float(seed & 0xffu);
+    uint offs = (SimplexNoise(npos) + 2) * 4;
 
     return Hash4(seed + offs);
 }

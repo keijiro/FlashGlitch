@@ -23,15 +23,18 @@ public sealed class FlashGlitchController : MonoBehaviour
     float2 _params;
     (Random gen, int val) _random;
 
+    float ApplyStrengthCurve(float strength)
+      => 0.15f + (1 - math.pow(1 - strength, 2));
+
     public void TriggerEffect1(float strength)
     {
-        _params.x = strength;
+        _params.x = ApplyStrengthCurve(strength);
         _random.val = _random.gen.NextInt();
     }
 
     public void TriggerEffect2(float strength)
     {
-        _params.y = strength;
+        _params.y = ApplyStrengthCurve(strength);
         _random.val = _random.gen.NextInt();
     }
 
