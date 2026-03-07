@@ -1,0 +1,26 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Test.uss?fileID=7433441132597879392&amp;guid=cdf289691b0174f85a20179f4d9ea49a&amp;type=3#Test"/>
+    <ui:VisualElement name="panel" data-source-type="TriggerController, Assembly-CSharp" class="container">
+        <ui:Label text="Trigger 1" name="trigger1-label"/>
+        <ui:Slider label="Strength" value="42" high-value="1" name="trigger1-slider">
+            <Bindings>
+                <ui:DataBinding property="value" data-source-path="_Trigger1Strength_k__BackingField" binding-mode="TwoWay"/>
+            </Bindings>
+        </ui:Slider>
+        <ui:Button text="Trigger 1 (Z key)" name="trigger1-button" class="trigger-button"/>
+        <ui:VisualElement name="spacer" class="spacer"/>
+        <ui:Label text="Trigger 2&#10;" name="trigger2-label"/>
+        <ui:Slider label="Strength" value="42" high-value="1" name="trigger2-slider">
+            <Bindings>
+                <ui:DataBinding property="value" data-source-path="_Trigger2Strength_k__BackingField" binding-mode="TwoWay"/>
+            </Bindings>
+        </ui:Slider>
+        <ui:Button text="Trigger 2 (X key)" name="trigger2-button" class="trigger-button"/>
+        <ui:VisualElement name="spacer" class="spacer"/>
+        <ui:Toggle label="Auto Trigger" name="auto-trigger-toggle">
+            <Bindings>
+                <ui:DataBinding property="value" data-source-path="_AutoTrigger_k__BackingField" binding-mode="TwoWay"/>
+            </Bindings>
+        </ui:Toggle>
+    </ui:VisualElement>
+</ui:UXML>

@@ -548,8 +548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a7571d970044db8e00756f058f9e98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashGlitchURP.FlashGlitchController
-  <ReleaseTime1>k__BackingField: 0.5
-  <ReleaseTime2>k__BackingField: 1
+  <ReleaseTime1>k__BackingField: 0.25
+  <ReleaseTime2>k__BackingField: 0.5
   <Hue>k__BackingField: 0
   <Seed>k__BackingField: 308
   _shader: {fileID: 4800000, guid: a06c33c946564cd19c5200c852eb0551, type: 3}
@@ -652,9 +652,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1778112427}
+  - component: {fileID: 1778112428}
   - component: {fileID: 1778112426}
   m_Layer: 0
-  m_Name: Auto Trigger
+  m_Name: Trigger UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -673,6 +674,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashGlitchURP.FlashGlitchRandomTrigger
   _target: {fileID: 1485070795}
+  _trigger1Action:
+    m_Name: Trigger 1
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ebed1239-a8f6-42c3-957c-28ea4980bcf6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 75c3bbdf-a3cb-44d2-a384-dcaa326d8927
+      m_Path: <Keyboard>/z
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Trigger 1
+      m_Flags: 0
+    m_Flags: 0
+  _trigger2Action:
+    m_Name: Trigger 2
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 31510baf-5fc4-48ac-8595-c625542feb5a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 33cf9397-5d7b-44ef-99cd-98e755a2b21e
+      m_Path: <Keyboard>/x
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Trigger 2
+      m_Flags: 0
+    m_Flags: 0
+  <AutoTrigger>k__BackingField: 1
+  <Trigger1Strength>k__BackingField: 1
+  <Trigger2Strength>k__BackingField: 1
 --- !u!4 &1778112427
 Transform:
   m_ObjectHideFlags: 0
@@ -688,6 +726,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1778112428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778112425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: b95769a2e3dec452da7cfe96fd3156d7, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 589272d733a8f497e84dbe44dd63aeff, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

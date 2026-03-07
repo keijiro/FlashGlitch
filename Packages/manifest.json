@@ -1,10 +1,12 @@
 {
   "dependencies": {
+    "com.unity.inputsystem": "1.18.0",
     "com.unity.render-pipelines.universal": "17.3.0",
     "jp.keijiro.klak.lineargradient": "1.0.3",
     "jp.keijiro.klak.motion": "1.1.1",
     "jp.keijiro.klutter-tools": "2.6.0",
-    "jp.keijiro.metatex": "1.0.6"
+    "jp.keijiro.metatex": "1.0.6",
+    "com.unity.modules.uielements": "1.0.0"
   },
   "scopedRegistries": [
     {
