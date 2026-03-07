@@ -419,8 +419,6 @@ GameObject:
   - component: {fileID: 1485070790}
   - component: {fileID: 1485070792}
   - component: {fileID: 1485070795}
-  - component: {fileID: 1485070794}
-  - component: {fileID: 1485070793}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -538,38 +536,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!114 &1485070793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1485070787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a21a7537659146189771025927fbb20c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FlashGlitchURP.FlashGlitchRandomTrigger
-  _target: {fileID: 1485070795}
-  _index: 1
-  _minValue: 0.4
-  _maxValue: 1
---- !u!114 &1485070794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1485070787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a21a7537659146189771025927fbb20c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FlashGlitchURP.FlashGlitchRandomTrigger
-  _target: {fileID: 1485070795}
-  _index: 0
-  _minValue: 0.4
-  _maxValue: 1
 --- !u!114 &1485070795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,9 +549,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashGlitchURP.FlashGlitchController
   <ReleaseTime1>k__BackingField: 0.5
-  <ReleaseTime2>k__BackingField: 0.5
-  <Seed>k__BackingField: 308
+  <ReleaseTime2>k__BackingField: 1
   <Hue>k__BackingField: 0
+  <Seed>k__BackingField: 308
   _shader: {fileID: 4800000, guid: a06c33c946564cd19c5200c852eb0551, type: 3}
 --- !u!1 &1714068160
 GameObject:
@@ -677,6 +643,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1778112425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1778112427}
+  - component: {fileID: 1778112426}
+  m_Layer: 0
+  m_Name: Auto Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1778112426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778112425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a21a7537659146189771025927fbb20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlashGlitchURP.FlashGlitchRandomTrigger
+  _target: {fileID: 1485070795}
+--- !u!4 &1778112427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778112425}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -685,3 +696,4 @@ SceneRoots:
   - {fileID: 1714068163}
   - {fileID: 930761187}
   - {fileID: 722324520}
+  - {fileID: 1778112427}
