@@ -1,6 +1,7 @@
 # FlashGlitch
 
-![GIF](https://user-images.githubusercontent.com/343936/176086913-d83ced87-6675-42ca-af02-a84dfda7ff19.gif)
+![GIF](https://github.com/user-attachments/assets/755858f3-56a0-45ed-85af-cfee07c3eb1f)
+![GIF](https://github.com/user-attachments/assets/7a643d7c-0972-4bc5-a632-4d393d479b3f)
 
 **FlashGlitch** is a Unity URP renderer feature that provides a trigger-based
 glitch effect. It was originally created to add flashing visuals synchronized
