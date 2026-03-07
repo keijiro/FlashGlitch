@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-namespace FlashGlitchURP {
+namespace FlashGlitch {
 
 public sealed class FlashGlitchRendererFeature : ScriptableRendererFeature
 {
@@ -18,4 +18,4 @@ public sealed class FlashGlitchRendererFeature : ScriptableRendererFeature
       => renderer.EnqueuePass(_pass);
 }
 
-} // namespace FlashGlitchURP
+} // namespace FlashGlitch

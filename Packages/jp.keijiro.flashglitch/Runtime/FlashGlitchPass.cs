@@ -4,7 +4,7 @@ using UnityEngine.Rendering.RenderGraphModule;
 using UnityEngine.Rendering.RenderGraphModule.Util;
 using UnityEngine.Rendering.Universal;
 
-namespace FlashGlitchURP {
+namespace FlashGlitch {
 
 sealed class FlashGlitchPass : ScriptableRenderPass
 {
@@ -35,4 +35,4 @@ sealed class FlashGlitchPass : ScriptableRenderPass
     }
 }
 
-} // namespace FlashGlitchURP
+} // namespace FlashGlitch

@@ -125,6 +125,8 @@
       "depth": 0,
       "source": "embedded",
       "dependencies": {
+        "com.unity.mathematics": "1.2.0",
+        "com.unity.render-pipelines.universal": "17.0.0",
         "jp.keijiro.noiseshader": "3.0.1"
       }
     },
