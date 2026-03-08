@@ -59,7 +59,7 @@ public sealed class FlashGlitchController : MonoBehaviour
 
     void OnDisable() => ReleaseResources();
 
-    void Start()
+    void OnEnable()
       => (_random.gen = new Random(Seed)).NextUInt4(); // Init with warming up
 
     void Update()
